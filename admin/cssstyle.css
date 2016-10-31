@@ -1,0 +1,1020 @@
+@charset "utf-8";
+/* CSS Document */
+@font-face {
+    font-family: 'layiji_mahaniyom_v1.41regular';
+    src: url('../font/LayijiMahaniyom/layijimahaniyomv1041-webfont.eot');
+    src: url('../font/LayijiMahaniyom/layijimahaniyomv1041-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/LayijiMahaniyom/layijimahaniyomv1041-webfont.woff') format('woff'),
+         url('../font/LayijiMahaniyom/layijimahaniyomv1041-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'arundina_sansregular';
+    src: url('../font/arundina/arundina-webfont.eot');
+    src: url('../font/arundina/arundina-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/arundina/arundina-webfont.woff') format('woff'),
+         url('../arundina-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+body {
+	background:url(images/background.png) repeat-y center top;
+	color:#084e6c;
+	font-family:tahoma; font-size:12px;
+	margin:0px; padding:0px;
+}
+body.first {
+	background:url(images/background.jpg) center top;
+	color:#084e6c;
+	font-family:tahoma; font-size:12px;
+	margin:0px; padding:0px;
+}
+img {
+	border:0px;
+}
+a {
+	margin:0px; padding:0px; text-decoration:none; color:#006371; 
+}
+a:hover {
+	color:#00373f; 
+}
+h2 {
+	color:#006371; font-weight:bold; font-size:12px; margin:5px 5px 0 5px; padding:0px;
+}
+ul {
+	margin:0px; padding:0px; list-style:none;
+}
+.clear {
+	clear:both; line-height:0px; 
+}
+.page_container {
+	width:1200px; position:relative; margin:0 auto; padding:0 ; position:relative; background:#fff; left:0px;
+}
+.shadow_l {
+	position:absolute; width:3px; height:100%; top:0px; left:-3px; background:url(images/shadow_l.png) repeat-y;
+}
+.shadow_r {
+	position:absolute; width:3px; height:100%; top:0px; right:-3px; background:url(images/shadow_r.png) repeat-y;
+}
+.header {
+	height:200px; width:970px;position:relative; margin:0 auto;
+}
+.banner_celleb-modish {
+	width:242px; height:200px; float:left;
+}
+	.banner_celleb-modish a {
+		width:242px; height:200px; display:block; background:url(images/banner_Crosstwelfth.png); opacity:0.8; filter:alpha('opacity:80');
+	}
+		.banner_celleb-modish a:hover {
+			opacity:1.0; filter:alpha('opacity:100');
+		}
+.banner_celleb-mobile {
+	width:242px; height:200px; float:left;
+}
+	.banner_celleb-mobile a {
+		width:242px; height:200px; display:block; background:url(images/banner_celebmobile.png); opacity:0.8; filter:alpha('opacity:80');
+	}
+		.banner_celleb-mobile a:hover {
+			opacity:1.0; filter:alpha('opacity:100');
+		}		
+.banner_celleb-korea {
+	width:242px; height:200px; float:left;
+}
+	.banner_celleb-korea a {
+		width:242px; height:200px; display:block; background:url(images/banner_celebkorea.png); opacity:0.8; filter:alpha('opacity:80');
+	}
+		.banner_celleb-korea a:hover {
+			opacity:1.0; filter:alpha('opacity:100');
+		}
+.banner_celleb-mom {
+	width:242px; height:200px; float:left;
+}
+	.banner_celleb-mom a {
+		width:242px; height:200px; display:block; background:url(images/banner_celebmom.png); opacity:0.8; filter:alpha('opacity:80');
+	}
+		.banner_celleb-mom a:hover {
+			opacity:1.0; filter:alpha('opacity:100');
+		}			
+	.block_logo {
+		margin-top:17px; margin-left:25px;
+	}
+.container_content {
+	margin:10px 10px 0 10px; overflow:hidden;
+}
+/*------------------------------------------------------------------------------------------------------------------------------------------content L*/
+.content_l {
+	width:200px; margin-right:10px; float:left; margin-top:5px;
+}
+	.menu {
+		height:25px; width:199px; margin-bottom:5px; background:url(images/bg_menu.png); padding-top:5px;
+	}
+		.menu a {
+			font-weight:bold; padding-left:20px;
+		}
+	.block_style1 {
+		margin-bottom:20px;
+	}
+		.block_style1_top {
+			position:relative; height:10px;
+		}
+			.block_style1_top-l {
+				background:url(images/bock_style1-top.png) left top; position:absolute; left:0px; top:0px; width:50%; height:100%;
+			}
+			.block_style1_top-r {
+				background:url(images/bock_style1-top.png) right top; position:absolute; right:0px; top:0px; width:51%; height:100%;
+			}
+		.block_style1-content {
+			background:#fff;
+			border-left:#61f3f2 1px solid; border-right:#61f3f2 1px solid; padding:0 2px 10px 2px;
+		}
+			.block_style1-content ul a li{
+				height:19px; border-bottom:#61f3f2 1px dashed; padding:3px 5px; font-weight:bold;
+			}
+				.block_style1-content ul a:hover li{
+					background:#ebebeb;
+				}
+				.block_style1-content ul a.active li{
+					background:#ebebeb;
+				}
+		.block_style1_bottom {
+			position:relative; height:10px;
+		}
+			.block_style1_bottom-l {
+				background:url(images/bock_style1-bottom.png) left top; position:absolute; left:0px; top:0px; width:50%; height:100%;
+			}
+			.block_style1_bottom-r {
+				background:url(images/bock_style1-bottom.png) right top; position:absolute; right:0px; top:0px; width:51%; height:100%;
+			}		
+	.block_style2 {
+		margin-bottom:20px; position:relative;
+		
+	}			
+		.block_style2_top {
+			position:relative; height:25px;
+		}	
+			.block_style2_top-l {
+				position:absolute; width:50%; height:100%; background:url(images/bock_style2-top.png) left bottom; left:0px; top:0px; 
+			}
+			.block_style2_top-r {
+				position:absolute; width:50%; height:100%; background:url(images/bock_style2-top.png) right bottom; right:0px; top:0px; 
+			}		
+			.block_style2_top-t {
+				position:relative; margin-left:25px; color:#fff; padding-top:5px; font-weight:bold; 
+			}
+		.block_style2_content {
+			border-left:#fff 1px solid; border-right:#fff 1px solid; padding:10px;min-height:300px;background:url(images/blockContent_content.png) repeat-x #fff;
+
+		}
+		.block_style2_bottom {
+			position:relative; height:10px;
+		}
+			.block_style2_bottom-l {
+				background:url(images/bock_style2-bottom.png) left top; position:absolute; left:0px; top:0px; width:50%; height:100%;
+			}
+			.block_style2_bottom-r {
+				background:url(images/bock_style2-bottom.png) right top; position:absolute; right:0px; top:0px; width:51%; height:100%;
+			}			
+
+/*------------------------------------------------------------------------------------------------------------------------------------------content L*/
+
+/*------------------------------------------------------------------------------------------------------------------------------------------content R*/
+.content_r {
+	float:right; width:940px; margin-right:10px; 
+}
+.content-table {
+	margin:5px;
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------------------Table 3 cell*/
+.table_div3_cell {
+	margin-bottom:20px;
+}
+	.table_div3_cell-title {
+		border-top:#61f3f2 1px solid;
+		position:relative;
+		height:30px; /*เปลี่ยนความสูงของ title*/
+	}
+		.table_div3_cell-title1 {
+			position:absolute; height:100%;
+			width:20%; /*เปลียนความกว้างของ Cell เป็น percent*/
+		}
+		.table_div3_cell-title2 {
+			position:absolute; height:100%;
+			width:40%; /*เปลียนความกว้างของ Cell เป็น percent*/
+			left:20%; /*เปลี่ยนความกว้าง cell 1 ต้องเปลี่ยน left ให้เท่ากัน*/
+		}
+		.table_div3_cell-title3 {
+			position:absolute; height:100%; 
+			width:40%; /*เปลียนความกว้างของ Cell เป็น percent*/
+			right:0px; /*Cell สุดท้ายชิดขวา*/
+		}
+	.table_div3_cell-colum	 {
+		border:#61f3f2 1px solid;
+		position:relative;
+		height:25px; /*เปลี่ยนความสูงของ title*/
+	}
+		.table_div3_cell-colum1 {
+			position:absolute; border-right:#61f3f2 1px solid; height:100%;
+			width:20%; /*เปลียนความกว้างของ Cell เป็น percent*/
+		}
+		.table_div3_cell-colum2 {
+			position:absolute; border-right:#61f3f2 1px solid; height:100%;
+			width:40%; /*เปลียนความกว้างของ Cell เป็น percent*/
+			left:20%; /*เปลี่ยนความกว้าง cell 1 ต้องเปลี่ยน left ให้เท่ากัน*/			
+		}
+		.table_div3_cell-colum3 {
+			position:absolute; height:100%; 
+			width:40%; /*เปลียนความกว้างของ Cell เป็น percent*/
+			right:0px; /*Cell สุดท้ายชิดขวา*/			
+		}
+/*------------------------------------------------------------------------------------------------------------------------------------------End Table 4 cell*/		
+.block_title-all {
+	background:url(images/pin.png) no-repeat left top; height:22px; padding:3px 0 5px 35px; color:#006371; font-weight:bold; border-bottom:#1eacad 1px solid;
+}
+.table_div4_cell {
+	margin-bottom:20px;
+}
+	.table_div4_cell-title {
+		border-top:#61f3f2 1px solid;
+		position:relative;
+		height:30px; /*เปลี่ยนความสูงของ title*/
+	}
+		.table_div4_cell-title1 {
+			position:absolute; height:100%;
+			width:10%; /*เปลียนความกว้างของ Cell เป็น percent*/
+		}
+		.table_div4_cell-title2 {
+			position:absolute; height:100%;
+			width:30%; /*เปลียนความกว้างของ Cell เป็น percent*/
+			left:10%; /*เปลี่ยนความกว้าง cell 1 ต้องเปลี่ยน left ให้เท่ากัน*/
+		}
+		.table_div4_cell-title3 {
+			position:absolute; height:100%;
+			width:30%; /*เปลียนความกว้างของ Cell เป็น percent*/
+			left:40%; /*เปลี่ยนความกว้าง cell 1 ต้องเปลี่ยน left ให้เท่ากัน*/
+		}		
+		.table_div4_cell-title4 {
+			position:absolute; height:100%; 
+			width:30%; /*เปลียนความกว้างของ Cell เป็น percent*/
+			right:0px; /*Cell สุดท้ายชิดขวา*/
+		}
+	.table_div4_cell-colum	 {
+		border:#61f3f2 1px solid;
+		position:relative;
+		height:25px; /*เปลี่ยนความสูงของ title*/
+	}
+		.table_div4_cell-colum1 {
+			position:absolute; border-right:#61f3f2 1px solid; height:100%;
+			width:10%; /*เปลียนความกว้างของ Cell เป็น percent*/
+		}
+		.table_div4_cell-colum2 {
+			position:absolute; border-right:#61f3f2 1px solid; height:100%;
+			width:30%; /*เปลียนความกว้างของ Cell เป็น percent*/
+			left:10%; /*เปลี่ยนความกว้าง cell 1 ต้องเปลี่ยน left ให้เท่ากัน*/			
+		}
+		.table_div4_cell-colum3 {
+			position:absolute; border-right:#61f3f2 1px solid; height:100%;
+			width:30%; /*เปลียนความกว้างของ Cell เป็น percent*/
+			left:40%; /*เปลี่ยนความกว้าง cell 1 ต้องเปลี่ยน left ให้เท่ากัน*/			
+		}		
+		.table_div4_cell-colum4 {
+			position:absolute; height:100%; 
+			width:30%; /*เปลียนความกว้างของ Cell เป็น percent*/
+			right:0px; /*Cell สุดท้ายชิดขวา*/			
+		}
+/*------------------------------------------------------------------------------------------------------------------------------------------End Table 4 cell*/			
+
+/*------------------------------------------------------------------------------------------------------------------------------------------End Table 5 cell*/		
+
+.table_div5_cell {
+	margin-bottom:20px;
+}
+	.table_div5_cell-title {
+		border-top:#61f3f2 1px solid;
+		position:relative;
+		height:30px; /*เปลี่ยนความสูงของ title*/
+	}
+		.table_div5_cell-title1 {
+			position:absolute; height:100%;
+			width:10%; /*เปลียนความกว้างของ Cell เป็น percent*/
+		}
+		.table_div5_cell-title2 {
+			position:absolute; height:100%;
+			width:20%; /*เปลียนความกว้างของ Cell เป็น percent*/
+			left:10%; /*เปลี่ยนความกว้าง cell 1 ต้องเปลี่ยน left ให้เท่ากัน*/
+		}
+		.table_div5_cell-title3 {
+			position:absolute; height:100%;
+			width:20%; /*เปลียนความกว้างของ Cell เป็น percent*/
+			left:30%; /*เปลี่ยนความกว้าง cell 1 ต้องเปลี่ยน left ให้เท่ากัน*/
+		}	
+		.table_div5_cell-title4 {
+			position:absolute; height:100%;
+			width:20%; /*เปลียนความกว้างของ Cell เป็น percent*/
+			left:50%; /*เปลี่ยนความกว้าง cell 1 ต้องเปลี่ยน left ให้เท่ากัน*/
+		}				
+		.table_div5_cell-title5 {
+			position:absolute; height:100%; 
+			width:20%; /*เปลียนความกว้างของ Cell เป็น percent*/
+			right:0px; /*Cell สุดท้ายชิดขวา*/
+		}
+	.table_div5_cell-colum	 {
+		border-left:#61f3f2 1px solid; border:#61f3f2 1px solid; border-bottom:#61f3f2 1px solid;
+		position:relative;
+		height:25px; /*เปลี่ยนความสูงของ title*/
+	}
+		.table_div5_cell-colum1 {
+			position:absolute; border-right:#61f3f2 1px solid; height:100%;
+			width:10%; /*เปลียนความกว้างของ Cell เป็น percent*/
+		}
+		.table_div5_cell-colum2 {
+			position:absolute; border-right:#61f3f2 1px solid; height:100%;
+			width:20%; /*เปลียนความกว้างของ Cell เป็น percent*/
+			left:10%; /*เปลี่ยนความกว้าง cell 1 ต้องเปลี่ยน left ให้เท่ากัน*/			
+		}
+		.table_div5_cell-colum3 {
+			position:absolute; border-right:#61f3f2 1px solid; height:100%;
+			width:20%; /*เปลียนความกว้างของ Cell เป็น percent*/
+			left:30%; /*เปลี่ยนความกว้าง cell 1 ต้องเปลี่ยน left ให้เท่ากัน*/			
+		}		
+		.table_div5_cell-colum4 {
+			position:absolute; border-right:#61f3f2 1px solid; height:100%;
+			width:20%; /*เปลียนความกว้างของ Cell เป็น percent*/
+			left:50%; /*เปลี่ยนความกว้าง cell 1 ต้องเปลี่ยน left ให้เท่ากัน*/			
+		}			
+		.table_div5_cell-colum5 {
+			position:absolute; height:100%; 
+			width:30%; /*เปลียนความกว้างของ Cell เป็น percent*/
+			right:0px; /*Cell สุดท้ายชิดขวา*/			
+		}
+/*------------------------------------------------------------------------------------------------------------------------------------------End Table 4 cell*/		
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------form1*/
+.form1 ul {
+	overflow:hidden;clear:right; 
+}
+.form1 ul li {
+	float:left; margin:0 5px;
+}
+.form1 ul li input {
+	width:20px; 
+}
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------End form1*/
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------form2*/
+.form2 ul {
+	overflow:hidden;clear:right; 
+}
+.form2 ul li {
+	float:left; margin:0 5px;
+}
+.form2 ul li input {
+	width:20px; 
+}
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------End form2*/
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------form2*/
+.form3 ul {
+	overflow:hidden;clear:right; 
+}
+.form3 ul li {
+	float:left; margin:0 2px;
+}
+.form3 ul li input {
+	width:20px; 
+}
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------End form2*/
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------page number*/
+.page_number {
+	height:25px; z-index:99; 
+}
+	.page_number-right {
+		height:25px; float:right;
+	}
+	.page_number-right ul {
+		overflow:hidden;  clear:right;
+	}
+	.page_number-right ul li {
+		float:left; background:#ebebeb; padding:2px 5px; margin:0 3px; border:#61f3f2 1px solid;
+	}
+	.bt_next {
+		float:right ; padding-top:5px;
+	}
+/*---------------------------------------------------------------------------------------------------------------------------------------------------------------------------End page number*/
+	
+	
+	
+/*------------------------------------------------------------------------------------------------------------------------------------------End content R*/
+/*Footer*/
+.page_footer {
+	width:1200px; min-height:30px;margin:0 auto;
+}
+.page_container_footer {
+	width:870px; margin:0 auto; position:relative; top:-2px;  min-height:30px; text-align:center;
+}
+.page_container_footer-t, .page_container_footer-t  a {
+	padding-top:3px; color:#084e6c; line-height:20px;	
+}
+/*End Footer*/
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------------------------------navgator*/
+		.navigator {
+			padding-bottom:10px; font-size:14px; color:#0e4f6b; font-weight:bold;
+		}
+			.navigator a {
+				color:#0e4f6b; text-decoration:underline;
+			}
+			.navigator a:hover {
+				color:#032e40;
+			}
+/*---------------------------------------------------------------------------------------------------------------------------------------------------------------------------End navgator*/
+
+/*Page login*/
+#block_logo{
+	padding-top:150px; 
+}
+#block_slocan-home {
+	margin-top:5px; 
+}
+img.title {
+	margin-bottom:20px;
+}
+div.title-top {
+	padding-bottom:10px; font-size:14px; font-weight:bold;
+}
+div.right-title {
+	position:absolute; right:0px; top:0px;
+}
+
+.block_login {
+	width:319px; height:168px; display:block; background:url(images/block-login.png) no-repeat;	margin-top:20px;
+}
+	.block_login div.conten {
+		padding:30px 25px 0 25px;
+	}
+	.block_login div.conten ul li {
+		overflow:hidden; clear:right; margin-bottom:5px;
+	}
+		.block_login div.conten ul li h2 {
+			color:#efefef; float:left; width:100px; margin-right:10px; padding-top:7px;
+		}
+		.block_login div.conten ul li div {
+			float:right; width:150px; min-height:27px;
+		}
+		.block_login div.conten ul li div input {
+			height:27px; width:148px; background:#FFF; border:#61f3f2 1px solid;
+		}
+#nav_botton-login {
+	background:url(images/login_botton.png); display:block; width:72px; height:33px; margin-top:10px;
+}
+#nav_botton-login:hover {
+	background-position:right top;
+}
+/*End Page login*/
+
+/*-----------------------------------------------------------------------------------------------------------------------------------------กล่อง Module3 ไว้แยกแต่ละส่วนให้มองง่ายขึ้น*/
+		.module_3 {
+			width:100%; position:relative; margin-bottom:20px;
+		}
+			.module_3 div.title {
+				position:relative; height:30px;
+			}
+				.module_3 div.title div.l {
+					width:50%; height:100%; position:absolute; left:0px; top:0px;
+				}
+				.module_3 div.title div.r {
+					width:51%; height:100%; top:0px ;right:0px; position:absolute;
+				}
+				.module_3 div.title div.t {
+					position:relative; top:0px; left:10px;
+				}
+				.module_3 div.title div.bt {
+					position:absolute; right:-7px;top:-13px;
+				}
+					.module_3 div.title div.t h2 {
+						color:#0063a1; font-size:14px !important; padding-top:5px; 
+					}
+			.module_3 div.conten {
+				background:#fff; padding:5px 10px 10px 10px;
+			}
+			.module_3 div.bottom {
+				position:relative; height:10px;
+			}
+				.module_3 div.bottom div.l {
+					position:absolute; left:0px; top:0px; width:50%; height:100%;
+				}
+				.module_3 div.bottom div.r {
+					position:absolute; right:0px; top:0px; width:51%; height:100%;
+				}	
+/*-------------------------------------------------------------------------------------------------------------------------------------------End Module3 ไว้แยกแต่ละส่วนให้มองง่ายขึ้น*/
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------div Table 3 Cell No Border*/
+div.table_3cell-no_border {
+	border:#fff 1px solid; margin-bottom:20px;
+}
+div.table_3cell-no_border ul {
+		
+	}
+		div.table_3cell-no_border ul li {
+			border-top:#c6c6c6 1px solid; clear:right; overflow:hidden; 
+		}
+		div.table_3cell-no_border ul li.picture-line {
+			border-top:#c6c6c6 1px dashed; clear:right; overflow:hidden; padding:10px 10px 25px 10px; position:relative;
+		}
+		div.table_3cell-no_border ul li:first-child {
+			border:0px;
+		}
+		div.table_3cell-no_border ul li div {
+			padding:2px 0; 
+		}
+		.picture{
+			float:left; margin:15px 25px 0 25px; width:90%;
+		}
+		.save_ranking{
+			float:right;	
+		}
+		.save_ranking-gallery{
+			margin-bottom:10px;
+		}
+		.picture-box{
+			float:left; width:150px; height:150px; margin:10px 10px 30px 20px; text-align:center; border:#c6c6c6 1px solid;
+		}
+		div.table_3cell-no_border ul li div.cell1 {
+			width:10%; float:left; text-align:center; border-right:#c6c6c6 1px solid;min-height:33px;
+		}
+		div.table_3cell-no_border ul li div.cell1-slidehome {
+			width:10%; float:left; text-align:center; border-right:#c6c6c6 1px solid;min-height:30px; height:180px;
+		}
+		div.table_3cell-no_border ul li div.cell2 {
+			width:65%; float:left; text-align:center;min-height:33px; 
+		}
+		div.table_3cell-no_border ul li div.cell3 {
+			 float:left; text-align:center; width:24%; border-left:#c6c6c6 1px solid;min-height:33px;
+		}
+		div.table_3cell-no_border ul li div.cell3-slidehome {
+			 float:left; text-align:center; width:24%; border-left:#c6c6c6 1px solid;min-height:33px; height:180px;
+		}
+		div.table_3cell-no_border ul li div.cell3-category {
+			 float:left; text-align:left width:100%; padding-left:20px;
+		}
+		div.table_3cell-no_border ul li div.cell3-meun {
+			 float:right; text-align:right width:100%; padding-right:20px;
+		}		
+		.cell3-text {
+			 float:left;padding-left:10px; width:150px; margin-right:10px; height:30px; text-align:right;
+		}
+		.cell3-input {
+			 float:left; width:450px; height:30px; 
+		}
+		.cell3-order {
+			 float:left;padding-left:10px; width:150px; margin-right:10px; height:15px; text-align:right;
+		}
+		.cell3-score {
+			 float:left; width:450px; height:15px; 
+		}
+		.cell3-total {
+			 float:left;padding-left:10px; margin-left:45px; height:15px; margin-bottom:10px;
+		}
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------End div Table 3 Cell No Border*/		
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------div Table 3 Cell */		
+div.table_3cell {
+	border:#c6c6c6 1px solid; margin-bottom:20px;
+}
+	div.table_3cell ul {
+		
+	}
+		div.table_3cell ul li {
+			border-top:#c6c6c6 1px solid; clear:right; overflow:hidden; 
+		}
+		div.table_3cell ul li:first-child {
+			border:0px;
+		}
+		div.table_3cell ul li div {
+			padding:2px 0;
+		}
+		div.table_3cell ul li div.cell1 {
+			width:10%; float:left; text-align:center; border-right:#c6c6c6 1px solid;min-height:33px;
+		}
+		div.table_3cell ul li div.cell1-slidehome {
+			width:10%; float:left; text-align:center; border-right:#c6c6c6 1px solid;min-height:33px; height:180px; 
+		}
+		.cell1-text-page_newproduct{
+			width:10%; float:left; text-align:center; border-right:#c6c6c6 1px solid;min-height:13px; height:33px; 
+		}
+		.cell1-title-page_newproduct{
+			width:10%; float:left; text-align:center; border-right:#c6c6c6 1px solid;min-height:33px;
+		}
+		div.table_3cell ul li div.cell2 {
+			width:65%; float:left; text-align:center;min-height:33px; margin-left:3px;
+		}
+		.cell2-text-page_newproduct{
+			width:60%; float:left; text-align:left;min-height:13px; margin-left:3px; 
+		}
+		.cell2-title-page_newproduct{
+			width:60%; float:left; text-align:center;min-height:33px; margin-left:3px;
+		}
+		div.table_3cell ul li div.cell3 {
+			 float:left; text-align:center; width:24%; border-left:#c6c6c6 1px solid;min-height:33px;
+		}
+		div.table_3cell ul li div.cell3-slidehome {
+			 float:left; text-align:center; width:24%; border-left:#c6c6c6 1px solid;min-height:33px; height:180px;
+		}
+		div.table_3cell ul li div.cell3-category {
+			 float:left; text-align:left; width:100%; padding-left:20px;
+		}
+		.cell3-text-page_newproduct{
+			float:left; text-align:center; width:33%; border-left:#c6c6c6 1px solid;
+		}
+		.cell3-title-page_newproduct{
+			float:left; text-align:center; width:24%; border-left:#c6c6c6 1px solid;min-height:27px;
+		}
+		.cell3-text {
+			 float:left;padding-left:10px; width:150px; margin-right:10px; height:30px;
+		}
+		.cell3-input {
+			 float:left; width:450px; height:30px; 
+		}
+		.cell3-img {
+			 float:left; width:400px; height:197px; margin-top:25px;
+		}
+		.cell1-news{
+			width:10%; float:left; text-align:center; border-right:#c6c6c6 1px solid;min-height:120px;	
+		}
+		.cell2-news{
+			width:65%; float:left; text-align:left;min-height:27px; margin-left:3px;  background:;
+		}
+			.cell2-news_pic{
+				float:left; margin:0 10px 0 5px; width:100px; background:;
+			}
+			.cell2-news_text{
+				float:left; margin:2px 0 5px 0; width:330px; background:;
+			}
+		.cell3-news{
+			float:left; text-align:center; width:24%; border-left:#c6c6c6 1px solid;min-height:120px; background:;
+		}
+		.cell3-input_promotion{
+			float:left; width:450px; height:200px;
+		}
+		.cell1-branch{
+			width:10%; float:left; text-align:center; border-right:#c6c6c6 1px solid;min-height:80px;	
+		}
+		.cell2-branch{
+			width:65%; float:left; text-align:left;min-height:27px; margin-left:3px;  background:;
+		}
+		.cell3-branch{
+			float:left; text-align:center; width:24%; border-left:#c6c6c6 1px solid;min-height:80px; background:;
+		}
+		.cell3-branch_pic{
+			width:22%; float:left; text-align:center; min-height:80px;
+		}
+		.cell3-img_camera {
+			 float:left; width:100%; height:170px; margin-left:163px; background:;
+		}
+		.edit{
+			float:right; 
+		}
+		.type_list_payment {
+			float:left; width:140px; font-weight:bolder; background:;
+		}
+		.detail_list_payment {
+			float:left; width:280px; background:;
+		}
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------End div Table 3 Cell*/
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------div Table 4 Cell*/
+div.table_4cell {
+	border:#c6c6c6 1px solid;margin-bottom:20px;
+}
+	div.table_4cell ul {
+		
+	}
+		div.table_4cell ul li {
+			border-top:#c6c6c6 1px solid; clear:right; overflow:hidden; 
+		}
+		div.table_4cell ul li:first-child {
+			border:0px;
+		}
+		div.table_4cell ul li div {
+			padding:2px 0;
+		}
+		div.table_4cell ul li div.cell1 {
+			width:10%; float:left; text-align:center; border-right:#c6c6c6 1px solid;min-height:27px;
+		}
+		div.table_4cell ul li div.cell2 {
+			width:20%; float:left; text-align:center; border-right:#c6c6c6 1px solid;min-height:27px;
+		}
+		div.table_4cell ul li div.cell3 {
+			width:45%; float:left; text-align:center;min-height:27px; 
+		}
+		div.table_4cell ul li div.cell4 {
+			 float:left; text-align:center; width:23%; border-left:#c6c6c6 1px solid;min-height:27px;
+		}
+		.cell1-newvdo_title{
+			width:10%; float:left; text-align:center; border-right:#c6c6c6 1px solid;min-height:27px;
+		}
+		.cell2-newvdo_title{
+			width:28%; float:left; text-align:center; border-right:#c6c6c6 1px solid;min-height:27px;
+		}
+		.cell3-newvdo_title{
+			width:35%; float:left; text-align:center;min-height:27px;
+		}
+		.cell4-newvdo_title{
+			float:left; text-align:center; width:23%; border-left:#c6c6c6 1px solid;min-height:27px;
+		}
+		.cell1-newvdo{
+			width:10%; float:left; text-align:center; border-right:#c6c6c6 1px solid;min-height:136px; 
+		}
+		.cell2-newvdo{
+			width:28%; float:left; text-align:center; border-right:#c6c6c6 1px solid;min-height:136px; 
+		}
+		.cell3-newvdo{
+			width:35%; float:left; text-align:center;min-height:136px; ;
+		}
+		.cell4-newvdo{
+			float:left; text-align:center; width:23%; border-left:#c6c6c6 1px solid;min-height:136px; 
+		}
+		.cell3-input_vdo_pic {
+			 float:left; width:450px; height:136px; 
+		}
+		.cell3-input_textarea {
+			float:left; width:450px; height:97px;  
+		}
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------End div Table 4 Cell*/
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------div Table 5 Cell*/
+div.table_5cell {
+	border:#c6c6c6 1px solid;margin-bottom:20px;
+}
+	div.table_5cell ul {
+		
+	}
+		div.table_5cell ul li {
+			border-top:#c6c6c6 1px solid; clear:right; overflow:hidden; 
+		}
+		div.table_5cell ul li:first-child {
+			border:0px;
+		}
+		div.table_5cell ul li div {
+			padding:2px 0;
+		}
+		div.table_5cell ul li div.cell1 {
+			width:10%; float:left; text-align:center; border-right:#c6c6c6 1px solid;min-height:30px;
+		}
+		div.table_5cell ul li div.cell2 {
+			width:30%; float:left; text-align:center; border-right:#c6c6c6 1px solid;min-height:30px;
+		}
+		div.table_5cell ul li div.cell3 {
+			width:14%; float:left; text-align:center; border-right:#c6c6c6 1px solid;min-height:30px;
+		}
+		div.table_5cell ul li div.cell4 {
+			width:26%; float:left; text-align:center; min-height:30px;
+		}		
+		div.table_5cell ul li div.cell5 {
+			 float:left; text-align:center; width:19%; border-left:#c6c6c6 1px solid;min-height:30px; 
+		}
+		
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------End div Table 5 Cell*/
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------div Table 6 Cell*/
+div.table_6cell {
+	border:#c6c6c6 1px solid;margin-bottom:20px;
+}
+	div.table_6cell ul {
+		
+	}
+		div.table_6cell ul li {
+			border-top:#c6c6c6 1px solid; clear:right; overflow:hidden; 
+		}
+		div.table_6cell ul li:first-child {
+			border:0px;
+		}
+		div.table_6cell ul li div {
+			padding:2px 0; 
+		}
+		div.table_6cell ul li div.cell1 {
+			width:10%; float:left; text-align:center; border-right:#c6c6c6 1px solid; min-height:27px;
+		}
+		div.table_6cell ul li div.cell2 {
+			width:30%; float:left; text-align:center; border-right:#c6c6c6 1px solid; min-height:27px;
+		}
+		div.table_6cell ul li div.cell3 {
+			width:15%; float:left; text-align:center; border-right:#c6c6c6 1px solid; min-height:27px;
+		}
+		div.table_6cell ul li div.cell4 {
+			width:15%; float:left; text-align:center; border-right:#c6c6c6 1px solid; min-height:27px;
+		}
+		div.table_6cell ul li div.cell5 {
+			width:15%; float:left; text-align:center; min-height:27px;
+		}				
+		div.table_6cell ul li div.cell6 {
+			 float:left; text-align:center; width:14%; border-left:#c6c6c6 1px solid; min-height:27px;
+		}
+		
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------End div Table 6 Cell*/
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------form1*/
+.form1 ul {
+	overflow:hidden;clear:right; 
+}
+.form1 ul li {
+	float:left; margin:0 5px; border:0px !important;
+}
+.form1 ul li input {
+	width:20px; 
+}
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------End form1*/
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------form2*/
+.form2 ul {
+	overflow:hidden;clear:right; 
+}
+ul.pro_image{
+	margin-top:5px;	
+}
+.form2 ul li {
+	float:left; margin:0 5px; border:0px !important; 
+}
+.form2 ul li input {
+	width:20px; 
+}
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------End form2*/
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------form2*/
+.form3 ul {
+	overflow:hidden;clear:right; 
+}
+.form3 ul li {
+	float:left; margin:0 0 0 10px; border:0px !important; padding-left:10px; 
+}
+
+.form3 ul li input {
+
+}
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------End form2*/
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------form4*/
+.all_form4 {
+	overflow:hidden; width:100%;
+}
+.title_form4 {
+	float:left;margin-left:23px; 
+}
+.title_form4_left{
+	float:left;
+}
+.form4 {
+	width:150px; float:right;
+}
+.form4 ul {
+	overflow:hidden;clear:right; 
+}
+.form4 ul li {
+	float:left; margin:0 5px; border:0px !important; background:#fff !important;
+}
+.form4 ul li input {
+	width:20px; 
+}
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------End form4*/
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------page number*/
+.page_number {
+	height:25px; z-index:99; width:100%; position:relative;
+}
+	.show-page_number-left {
+		float:left; display:inline; position:absolute; left:0px;
+	}
+	.page_number-right {
+
+		height:25px; float:right;
+	}
+	.blockList {
+		
+		overflow:hidden;  clear:right; width:100%; height:25px;
+	}
+	.listNumberPage {
+		float:left; background:#ebebeb; padding:5px 5px; margin:0 3px; border:#61f3f2 1px solid; height:13px;
+	}
+	.bt_next {
+		border:1px solid #0C0;
+		float:right ; padding-top:5px;
+	}
+/*---------------------------------------------------------------------------------------------------------------------------------------------------------------------------End page number*/
+/*End Page control*/
+
+.footer {
+	text-align:center; padding-bottom:10px;
+}
+
+
+
+
+
+/*------------------------------------------------------------------------------------------------------------------------------------------Table 2 cell*/
+.table_div2_cell {
+	margin-bottom:20px;
+}
+	.table_div2_cell-title {
+		border-top:#61f3f2 1px solid;
+		border-bottom:#61f3f2 1px solid;
+		position:relative;
+		height:30px; /*เปลี่ยนความสูงของ title*/
+	}
+		.table_div2_cell-title1 {
+			position:absolute;height:100%;
+			width:50%; /*เปลียนความกว้างของ Cell เป็น percent*/
+		}
+		.table_div2_cell-title2 {
+			position:absolute; height:100%; 
+			width:50%; /*เปลียนความกว้างของ Cell เป็น percent*/
+			right:0px; /*Cell สุดท้ายชิดขวา*/
+		}
+	.table_div2_cell-colum	 {
+		border-left:#61f3f2 1px solid; border-right:#61f3f2 1px solid; border-bottom:#61f3f2 1px solid;
+		position:relative;
+		height:25px; /*เปลี่ยนความสูงของ title*/
+	}
+		.table_div2_cell-colum1 {
+			position:absolute; border-right:#61f3f2 1px solid; height:100%;
+			width:50%; /*เปลียนความกว้างของ Cell เป็น percent*/
+		}
+		.table_div2_cell-colum2 {
+			position:absolute; height:100%; 
+			width:50%; /*เปลียนความกว้างของ Cell เป็น percent*/
+			right:0px; /*Cell สุดท้ายชิดขวา*/			
+		}
+		.table_div2_cell-colum1-100percent {
+			position:absolute; border-right:#61f3f2 1px solid; height:100%;background:#4ddcdd;
+			width:100%; /*เปลียนความกว้างของ Cell เป็น percent*/
+		}
+		
+		
+.block_title-color {
+	background:url(images/pin.png) no-repeat left top #d3f2f1; height:27px; padding:8px 0 0 35px; color:#006371; font-weight:bold; margin-bottom:5px;
+}		
+
+/*--------------------------------------------------------------------------------*/
+.gallery {
+	overflow:hidden;
+}
+.gallery-box {
+	width:145px;
+	float:left;
+	margin:10px;
+}
+/*===============================================================================================Category-Product*/
+	.category_list {
+		background:; margin:4px 0 4px 10px; width:660px; height:30px;	
+	}
+		.category_text {
+			float:left; margin-left:5px; width:510px;	
+		}
+		.category_option {
+			float:left;	
+		}
+	.main_category_list {
+		background:; margin:4px 0 4px 25px; width:640px; height:30px;
+	}
+		.main_category_text {
+			float:left; margin-left:5px; margin-top:3px; width:460px;
+		}
+		.main_category_option {
+			float:left;	
+		}
+	.sub_category_list {
+		background:; margin:4px 0 4px 50px; width:560px; height:30px;
+	}
+		.sub_category_text {
+			float:left; margin-left:5px; margin-top:3px; width:410px;	
+		}
+		.sub_category_option {
+			float:left;	
+		}
+	.edit_category_pic {
+		margin-left:160px;	
+	}
+/*============================================================================================ END Category-Product*/
+.product_Category {
+	border:#333 1px solid;
+	padding:10px 10px 30px 10px;
+	margin-bottom:20px;
+}
+	.category_product {
+		background:#ebebeb;
+		padding:2px 5px; 
+		margin-bottom:5px;
+	}
+	.category_product-main {
+		padding:5px 5px 5px 20px;
+		border-bottom:#333 2px solid;
+	}
+	.category_product-Sub {
+		padding:5px 5px 5px 40px;
+		border-bottom:#333 1px dashed;	
+	}

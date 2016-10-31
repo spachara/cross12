@@ -1,0 +1,9 @@
+<?php
+/*$AUTH_PERMISSION_ID="";
+session_unregister("AUTH_PERMISSION_ID");*/
+session_start();
+session_unregister('AUTH_PERMISSION_ID');
+?>
+<script>
+	location.href='index.php';
+</script>
