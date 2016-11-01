@@ -384,21 +384,23 @@ Selecct All</td>
 
 
 
-                                    $sql_order = "SELECT * FROM order_tb where payment_status in ('1','3') and status_finish <> '1'";
+										$sql_order = '';
 
 										 if($_POST['order_date'] != '' ){
+											$sql_order = "SELECT order_tb.* FROM order_tb where 1 = 1 ";
+											 $sql_product = "select order_number from order_product_tb where ready_time = '".$_POST['order_date']."' ";
 											 
-											 $sql_product = "select order_number from order_product_tb where  status_tracking <> '2' and ready_time = '".$_POST['order_date']."' ";
-											 
-										 $sql_order .= " AND order_number in (". $sql_product .")";
+											$sql_order .= " AND order_tb.order_number in (". $sql_product .")";
 										 
 										 }else{
 											  
-										 $sql_order .= " AND order_number in (select order_number from order_product_tb where ready_time <> '' and status_tracking <> '2')";
-
+										 //$sql_order .= " AND order_number in (select order_number from order_product_tb where ready_time <> '' and status_tracking <> '2')";
+											$sql_order .="SELECT order_tb.* FROM order_tb 
+											            inner join order_product_tb on order_product_tb.order_number = order_tb.order_number 
+														and order_product_tb.order_type = order_tb.order_type where order_product_tb.ready_time <> '' " ;
 										 }
 										 
-									$sql_order .= " and order_status = '2' GROUP BY order_number ORDER BY date_in desc";
+									$sql_order .= " and order_tb.payment_status in ('1','3') and order_tb.status_finish <> '1' and order_tb.order_status = '2' GROUP BY order_tb.order_number ORDER BY order_tb.date_in desc";
                                     $result_order =@mysql_query($sql_order, $connect);
                                     $num_order =@mysql_num_rows($result_order);
 
