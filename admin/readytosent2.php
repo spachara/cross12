@@ -2,33 +2,33 @@
 session_start();
 require_once '../dbconnect.inc';
 	include("class.page_split.php");
+if(isset($_SESSION['AUTH_PERMISSION_ID'])==false) {
+	echo "<script>location.href='index.php'</script>";
+}
 
- $obj = new page_split();
+	$obj = new page_split();
 	$obj->_setPageSize(100);						
 	$obj->_setFile("readytosent2.php");
-        if($_POST['type_submit'] == 'Search')
+        if( isset($_GET['Search'])&& $_SERVER['REQUEST_METHOD'] === 'GET')
             $obj->_setPage(1);	
         else
             $obj->_setPage($_GET['page']);		
 	if($_GET['page'] > 1){
 		$f = 100*($_GET['page']- 1);
 	}
-if(isset($_SESSION['AUTH_PERMISSION_ID'])==false) {
-	echo "<script>location.href='index.php'</script>";
-}
 $date_check = date('Y')."-".date('m')."-".date('d');
 $sql_max = "select max(round_update) as max_round from order_product_tb where ready_time = '".$date_check ."'";
 $result_max = @mysql_query($sql_max, $connect);
 $data_max=@mysql_fetch_array($result_max);
 $round_no = isset($data_max['max_round'])? $data_max['max_round'] : 1;
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 if($_POST['submit'] == 'Save' ){
  
 
 		if($_POST['trackingProId']){
 			
-		foreach ($_POST['trackingProId'] as $v) {
-			
+		foreach ($_POST['trackingProId'] as $v) {			
 			
 			if($_POST['tracking'][$v] == '1'){
 					$sql_update_payment = "UPDATE order_product_tb SET ready_sent = '".$_POST['tracking'][$v]."', status_tracking = '1', ready_time = NOW()";
@@ -55,84 +55,15 @@ session_unregister('AllID');
 session_unregister('AllNUMBERID');
 ?>		 
 		<script>
-			location.href='readytosent2.php'; //รีเฟสหน้า
+			//location.href='readytosent2.php'; //รีเฟสหน้า
 		</script>
 <?php
 
-}
-
-if($_POST['submit2'] == 'Update' ){
-
-
-if($_POST['type_submit'] == 'Search' || $_POST['type_submit3'] == 'View select order' ){
-	
-	
-	
-		if($_POST['trackingProId']){
-			session_unregister('AllID');
-			session_register('AllID');
-			foreach ($_POST['trackingProId'] as $v) {
-				
-				if($_POST['tracking'][$v] == '1'){
-				$_SESSION['AllID'] .= $_POST['all_id'].$v.",";
-				}
-				
-	
-			}
-		
-		}
-
-		if($_POST['number_id']){
-			session_unregister('AllNUMBERID');
-			session_register('AllNUMBERID');
-			foreach ($_POST['number_id'] as $p) {
-				
-				if($_POST['number'][$p] == '1'){
-				$_SESSION['AllNUMBERID'] .= $_POST['all_number'].$p.",";
-				}
-	
-			}
-		
-		}
-
-}else{
-	
-		if($_POST['trackingProId']){
-			session_unregister('AllID');
-			session_register('AllID');
-			foreach ($_POST['trackingProId'] as $v) {
-				if($_POST['tracking'][$v] == '1'){
-				$_SESSION['AllID'] .= $v.",";
-				}
-				
-	
-			}
-		
-		}
-	
-		if($_POST['number_id']){
-			session_unregister('AllNUMBERID');
-			session_register('AllNUMBERID');
-			foreach ($_POST['number_id'] as $p) {
-				
-				if($_POST['number'][$p] == '1'){
-				$_SESSION['AllNUMBERID'] .= $p.",";
-				}
-	
-			}
-		
-		}
-}
+	}
+ }
 ?>		 
-		<script>
-			location.href='readytosent2.php'; //รีเฟสหน้า
-		</script>
-<?php
-
-}
-
-
-?>
+		
+ 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -293,16 +224,11 @@ $(document).ready(function() {
                     </div>
                     <div class="block_style2_content">
 
-                <form method="post" enctype="multipart/form-data" name="myform">
-                <input type="hidden" name="all_number" value="<?php echo $_SESSION['AllNUMBERID'];?>" />
-                <input type="hidden" name="all_id" value="<?php echo $_SESSION['AllID'];?>" />
-                <input type="hidden" name="type_submit" value="<?php echo $_POST['Search'];?>" />
-                <input type="hidden" name="type_submit3" value="<?php echo $_POST['submit3'];?>" />
-                
-                <table width="100%" border="0" cellpadding="0" cellspacing="0" style="font-family:Tahoma, Geneva, sans-serif; font-size:12px;">
+                <form method="get" enctype="multipart/form-data" name="myform" action="<?php echo $_SERVER["PHP_SELF"];?>">                
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" style="font-family:Tahoma, Geneva, sans-serif; font-size:12px;">     
                       <tr>
                         <td width="8%">รหัสสินค้า</td>
-                        <td width="29%"><input type="text" name="product_code" value="<?php echo $_POST['product_code'];?>" /></td>
+                        <td width="29%"><input type="text" name="product_code" value="<?php echo $_GET['product_code'];?>" /></td>
                         <td width="10%">Color </td>
                         <td width="23%">
                         
@@ -316,7 +242,7 @@ $(document).ready(function() {
                         for($i=1;$i<=intval($num_color);$i++){
                         $data_color =@mysql_fetch_array($result_color);
                         ?>
-                        	<option value="<?php echo $data_color['name']; ?>" <?php echo ($_POST['color'] == $data_color['name'] ? "selected=selected" : "" );?> ><?php echo $data_color['name']; ?></option>
+                        	<option value="<?php echo $data_color['name']; ?>" <?php echo ($_GET['color'] == $data_color['name'] ? "selected=selected" : "" );?> ><?php echo $data_color['name']; ?></option>
                         <?php } ?>
                         </select>                        
                         </td>
@@ -332,16 +258,16 @@ $(document).ready(function() {
                         for($i=1;$i<=intval($num_size);$i++){
                         $data_size =@mysql_fetch_array($result_size);
                         ?>
-                        	<option value="<?php echo $data_size['name']; ?>" <?php echo ($_POST['size'] == $data_size['name'] ? "selected=selected" : "" );?>><?php echo $data_size['name']; ?></option>
+                        	<option value="<?php echo $data_size['name']; ?>" <?php echo ($_GET['size'] == $data_size['name'] ? "selected=selected" : "" );?>><?php echo $data_size['name']; ?></option>
                         <?php } ?>
                         </select>                        
                         </td>
                       </tr>
                       <tr>
                         <td>ชื่อ</td>
-                        <td><input type="text" name="order_employee" value="<?php echo $_POST['order_employee'];?>" /></td>
+                        <td><input type="text" name="order_employee" value="<?php echo $_GET['order_employee'];?>" /></td>
                         <td>เลขที่ใบสั่งซื้อ</td>
-                        <td colspan="3" style=" color:#FF0000;"><input type="text" name="order_number" value="<?php echo $_POST['order_number'];?>" />
+                        <td colspan="3" style=" color:#FF0000;"><input type="text" name="order_number" value="<?php echo $_GET['order_number'];?>" />
                        *ใส่เฉพาะตัวเลข ไม่ต้องใส่ -IN -PRE
                        </td>
                       </tr>
@@ -350,14 +276,14 @@ $(document).ready(function() {
                         <td>
                         
                         <select name="order_status" >
-                          <option value="" <?php echo ($_POST['order_status'] == '' ? "selected=selected" : "");?>></option>
-                          <option value="ไปรษณีย์ส่งด่วน พิเศษ ( EMS )" <?php echo ($_POST['order_status'] == 'ไปรษณีย์ส่งด่วน พิเศษ ( EMS )' ? "selected=selected" : "");?>>EMS</option>
-                          <option value="ลงทะเบียน" <?php echo ($_POST['order_status'] == 'ลงทะเบียน' ? "selected=selected" : "");?>>ลงทะเบียน</option>
+                          <option value="" <?php echo ($_GET['order_status'] == '' ? "selected=selected" : "");?>></option>
+                          <option value="ไปรษณีย์ส่งด่วน พิเศษ ( EMS )" <?php echo ($_GET['order_status'] == 'ไปรษณีย์ส่งด่วน พิเศษ ( EMS )' ? "selected=selected" : "");?>>EMS</option>
+                          <option value="ลงทะเบียน" <?php echo ($_GET['order_status'] == 'ลงทะเบียน' ? "selected=selected" : "");?>>ลงทะเบียน</option>
                         </select>
                         
                         </td>
                         <td>วันที่ชำระเงิน</td>
-                        <td><input type="text" name="order_date" id="datepicker2" value="<?php echo $_POST['order_date'];?>" /></td>
+                        <td><input type="text" name="order_date" id="datepicker2" value="<?php echo $_GET['order_date'];?>" /></td>
                         <td>&nbsp;</td>
                         <td>&nbsp;</td>
                       </tr>
@@ -373,7 +299,7 @@ $(document).ready(function() {
                         for($c=1;$c<=intval($num_country);$c++){
                         $data_country =@mysql_fetch_array($result_country);	
                         ?>
-                        <option value="<?php echo $data_country['PROVINCE_NAME'];?>" <?php echo ($_POST['u_province'] == $data_country['PROVINCE_NAME'] ? "selected=selected" : "");?>><?php echo $data_country['PROVINCE_NAME'];?></option>
+                        <option value="<?php echo $data_country['PROVINCE_NAME'];?>" <?php echo ($_GET['u_province'] == $data_country['PROVINCE_NAME'] ? "selected=selected" : "");?>><?php echo $data_country['PROVINCE_NAME'];?></option>
                         <?php } ?>
                         </select>                        
                         </td>
@@ -382,14 +308,13 @@ $(document).ready(function() {
                         <td>&nbsp;</td>
                         <td>&nbsp;</td>
                       </tr>
-                    </table>                
+                    </table>  
+
+				</form>
+				 <form method="post" enctype="multipart/form-data" name="myform2" action="<?php echo $_SERVER["PHP_SELF"] . '?' . $_SERVER['QUERY_STRING'] ;?>">           					
                 <div class="demo" style="text-align:right">
                   <table width="100%" border="0" cellspacing="5" cellpadding="0" style="font-family:Tahoma, Geneva, sans-serif; font-size:12px;">
                     <tr>
-                      <td align="center" style="display:none"><input type="submit" name="submit3" value="View select order" /></td>
-                      <td  align="center" style="display:none"><span class="demo" style="text-align:center">
-                        <input type="submit" name="submit2" value="Update" />
-                      </span></td>
                       <td width="40%" align="right" bgcolor="#F8F8F8">Comment :<br/><textarea name="round_comment" id="round_comment"><?php echo $_POST['round_comment'];?></textarea></td>
                       <td width="6%" align="right" bgcolor="#F8F8F8">รอบที่ / Round :<br/><input type="text" onkeypress="return isNumber(event)" style="width:50px"  name="round_no" id="round_no" value="<?php echo $round_no ;?>"></td>
                       <td width="6%" bgcolor="#F8F8F8"><span class="demo" style="text-align:right">
@@ -412,35 +337,35 @@ $(document).ready(function() {
                         <td width="2%" align="center" bgcolor="#CCCCCC">&nbsp;</td>
                       </tr>
                       <?php 
-                                                                        $sql_order =  "SELECT order_number, order_comment, payment_date, order_address2, GROUP_CONCAT( CONCAT( order_number,  '-', order_type,  ' ', order_transport ) 
-                                                                        ORDER BY order_type ) order_concate, GROUP_CONCAT( 
-                                                                        CASE WHEN order_type =  'PRE'
-                                                                        THEN order_group
-                                                                        ELSE  ''
-                                                                        END SEPARATOR  '' ) group_send, COUNT( order_number ) order_count
-                                                                        FROM  order_tb";
-                                                                         $sql_order .= " where payment_status in( '1', '3') and tranfer_status in( '1', '3')";
-                                                                        $sql_order .= " and order_status <> '0' and status_ready = '0' ";
-									if($_POST['Search'] == 'Search'){
+									$sql_order =  "SELECT order_number, order_comment, payment_date, order_address2, GROUP_CONCAT( CONCAT( order_number,  '-', order_type,  ' ', order_transport ) 
+									ORDER BY order_type ) order_concate, GROUP_CONCAT( 
+									CASE WHEN order_type =  'PRE'
+									THEN order_group
+									ELSE  ''
+									END SEPARATOR  '' ) group_send, COUNT( order_number ) order_count
+									FROM  order_tb";
+									 $sql_order .= " where payment_status in( '1', '3') and tranfer_status in( '1', '3')";
+									$sql_order .= " and order_status <> '0' and status_ready = '0' ";
+									if( isset($_GET['Search'])){
 										
 										
 										
 										
 							
-										 if($_POST['product_code'] != '' ){
+										 if($_GET['product_code'] != '' ){
 											 
-											 $sql_product = "select * from order_product_tb where pro_code like '%".$_POST['product_code']."%' ";
+											 $sql_product = "select * from order_product_tb where pro_code like '%".$_GET['product_code']."%' ";
 											 
 											 
-												 if($_POST['size'] != '' ){
+												 if($_GET['size'] != '' ){
 													 
-												 $sql_product .= " AND order_p_size = '".$_POST['size']."'";
+												 $sql_product .= " AND order_p_size = '".$_GET['size']."'";
 												 
 												 }
 
 
-												 if($_POST['color'] != '' ){
-													$product_t = "select * from color_tb where name = '".$_POST['color']."' ";
+												 if($_GET['color'] != '' ){
+													$product_t = "select * from color_tb where name = '".$_GET['color']."' ";
 													$result_t = @mysql_query($product_t, $connect);
 													$num_t = @mysql_num_rows($result_t);
 													
@@ -471,55 +396,36 @@ $(document).ready(function() {
 										 }
 										 
 
-										 if($_POST['order_employee'] != '' ){
+										 if($_GET['order_employee'] != '' ){
 											 
-										 $sql_order .= " AND order_employee like '%".$_POST['order_employee']."%'";
+										 $sql_order .= " AND order_employee like '%".$_GET['order_employee']."%'";
 										 
 										 }
 										 
-										 if($_POST['order_status'] != '' ){
+										 if($_GET['order_status'] != '' ){
 											 
-										 $sql_order .= " AND order_transport like '%".$_POST['order_status']."%'";
+										 $sql_order .= " AND order_transport like '%".$_GET['order_status']."%'";
 										 
 										 }
 							
-										 if($_POST['u_province'] != '' ){
+										 if($_GET['u_province'] != '' ){
 											 
-										 $sql_order .= " AND order_province like '%".$_POST['u_province']."%'";
+										 $sql_order .= " AND order_province like '%".$_GET['u_province']."%'";
 										 
 										 }
-										 if($_POST['order_date'] != '' ){
+										 if($_GET['order_date'] != '' ){
 											 
-										 $sql_order .= " AND payment_date like '%".$_POST['order_date']."%'";
+										 $sql_order .= " AND payment_date like '%".$_GET['order_date']."%'";
 										 
 										 }
-										 if($_POST['order_number'] != '' ){
+										 if($_GET['order_number'] != '' ){
 											 
-										 explode(',',$_POST['order_number']);
+										 explode(',',$_GET['order_number']);
 											 
-										 $sql_order .= " AND order_number like '%".$_POST['order_number']."%' ";
+										 $sql_order .= " AND order_number like '%".$_GET['order_number']."%' ";
 										 
 										 } 
-									}elseif($_POST['submit3']){
-										
-										$arr_numId = explode(',',$_SESSION['AllNUMBERID']);
-										
-										foreach ($arr_numId as $r) {
-
-
-												$arr_num .= "'".$r."',";
-
-
-								
-										}
-										
-										$arr_num = substr($arr_num,0,-1);
-										 
-										 
-										$sql_order .= " AND order_number in (".$arr_num.")";
-										 
-										 
-									} 
+									}
 										$sql_order .= " GROUP BY order_number  ORDER BY payment_date , order_number ";
                                                                        
 								   
@@ -670,15 +576,9 @@ $(document).ready(function() {
                                             ?></td>
                             <td   bgcolor="#FFFFFF"><?php echo $show_status; ?></td>
                             <td  bgcolor="#FFFFFF">
-							<?php if($data_update3['ready_sent'] == '0'){
-								
-							$arr_id = explode(',',$_SESSION['AllID']);
-							$chk = '';
-							if(in_array($data_update3['order_p_id'], $arr_id)){
-								$chk = 'ok';
-							}
+							<?php if($data_update3['ready_sent'] == '0'){							
 							?>
-                              <input type="checkbox" name="tracking[<?php echo $data_update3['order_p_id'];?>]" value="1" <?php echo ($disa == '1' ? "disabled=disabled" : "" );?>  <?php echo ($chk == 'ok' ? "checked=checked" : "" );?>   />
+                              <input type="checkbox" name="tracking[<?php echo $data_update3['order_p_id'];?>]" value="1" <?php echo ($disa == '1' ? "disabled=disabled" : "" );?>    />
                             <?php }else{
 							$num_readySend = $num_readySend+1;
 							}
@@ -742,7 +642,7 @@ $(document).ready(function() {
                 <!-- End Block Frame-->
                                   	<div class="page_number">
                                     	<div class="page_number-right">
-                                            	<?php   $obj->_displayPage(); ?>
+                                            	<?php   $obj->_displayPage(str_replace('page='.$_GET['page'], '', $_SERVER['QUERY_STRING']);); ?>
                                     	</div>
                                     </div>
             </div>

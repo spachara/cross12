@@ -47,14 +47,14 @@ class page_split
 		echo "<div class='show-page_number-left'>Page no.  ";
 		if($this->var_currentPage >1 && $this->var_currentPage<=$this->var_totalPage) {
 			$prevpage = $this->var_currentPage - 1;
-			echo "<a href='".$this->var_file."?page=".$prevpage.($_GET['id'] != '' ? "&id=".$_GET['id'] : "").($_GET['select_search'] != '' ? "&select_search=".$_GET['select_search'] : "").($_GET['search_text'] != '' ? "&search_text=".$_GET['search_text'] : "")."'><img src='images/back.png' border=0 align=absmiddle></a>\n";
+			echo "<a href='".$this->var_file."?page=".$prevpage.($_GET['id'] != '' ? "&id=".$_GET['id'] : "").($_GET['select_search'] != '' ? "&select_search=".$_GET['select_search'] : "").($_GET['search_text'] != '' ? "&search_text=".$_GET['search_text'] : "").$option."'><img src='images/back.png' border=0 align=absmiddle></a>\n";
 		}
 
 		echo " <b>".$this->var_currentPage."/".$this->var_totalPage."</b> ";
 
 		if($this->var_currentPage != $this->var_totalPage) {
 			$nextpage = $this->var_currentPage + 1;
-			echo "<a href='".$this->var_file."?page=".$nextpage.($_GET['id'] != '' ? "&id=".$_GET['id'] : "").($_GET['select_search'] != '' ? "&select_search=".$_GET['select_search'] : "").($_GET['search_text'] != '' ? "&search_text=".$_GET['search_text'] : "")."'><img src='images/next.png' border=0 align=absmiddle></a>\n";
+			echo "<a href='".$this->var_file."?page=".$nextpage.($_GET['id'] != '' ? "&id=".$_GET['id'] : "").($_GET['select_search'] != '' ? "&select_search=".$_GET['select_search'] : "").($_GET['search_text'] != '' ? "&search_text=".$_GET['search_text'] : "").$option."'><img src='images/next.png' border=0 align=absmiddle></a>\n";
 		}
 		echo "</div>";
 
@@ -63,7 +63,7 @@ class page_split
 
 		if($c>1) {
 			$prevpage = $c-1;
-			echo "<div class='listNumberPage'><a href='".$this->var_file."?page=".$prevpage.($_GET['id'] != '' ? "&id=".$_GET['id'] : "").($_GET['select_search'] != '' ? "&select_search=".$_GET['select_search'] : "").($_GET['search_text'] != '' ? "&search_text=".$_GET['search_text'] : "")."'>
+			echo "<div class='listNumberPage'><a href='".$this->var_file."?page=".$prevpage.($_GET['id'] != '' ? "&id=".$_GET['id'] : "").($_GET['select_search'] != '' ? "&select_search=".$_GET['select_search'] : "").($_GET['search_text'] != '' ? "&search_text=".$_GET['search_text'] : "").$option."'>
 			<img src='images/back.png' border=0 align=absmiddle></a></div>";
 		}else{
 			echo "<div class='listNumberPage'><img src='images/back-not.png'/></div>";
@@ -72,20 +72,20 @@ class page_split
 				
 						for($i=$c; $i<$this->var_currentPage ; $i++) {
 							if($i>0)
-							echo "<div class='listNumberPage'><a href='".$this->var_file."?page=".$i.($_GET['id'] != '' ? "&id=".$_GET['id'] : "").($_GET['select_search'] != '' ? "&select_search=".$_GET['select_search'] : "").($_GET['search_text'] != '' ? "&search_text=".$_GET['search_text'] : "")."'>$i</a></div> ";
+							echo "<div class='listNumberPage'><a href='".$this->var_file."?page=".$i.($_GET['id'] != '' ? "&id=".$_GET['id'] : "").($_GET['select_search'] != '' ? "&select_search=".$_GET['select_search'] : "").($_GET['search_text'] != '' ? "&search_text=".$_GET['search_text'] : "").$option."'>$i</a></div> ";
 						}
 
 						echo "<div class='listNumberPage'>".$this->var_currentPage."</div>";
 
 						for($i=($this->var_currentPage+1); $i<($c+10) ; $i++) {
 							if($i<=$this->var_totalPage)
-							echo "<div class='listNumberPage'><a href='".$this->var_file."?page=".$i.($_GET['id'] != '' ? "&id=".$_GET['id'] : "").($_GET['select_search'] != '' ? "&select_search=".$_GET['select_search'] : "").($_GET['search_text'] != '' ? "&search_text=".$_GET['search_text'] : "")."'>$i</a></div> ";
+							echo "<div class='listNumberPage'><a href='".$this->var_file."?page=".$i.($_GET['id'] != '' ? "&id=".$_GET['id'] : "").($_GET['select_search'] != '' ? "&select_search=".$_GET['select_search'] : "").($_GET['search_text'] != '' ? "&search_text=".$_GET['search_text'] : "").$option."'>$i</a></div> ";
 						}
 			if($c>=0) {
 				if(($c+10)<=$this->var_totalPage){
 					$nextpage = $c+10;
 					echo "<div class='listNumberPage'>
-					<a href='".$this->var_file."?page=".$nextpage.($_GET['id'] != '' ? "&id=".$_GET['id'] : "").($_GET['select_search'] != '' ? "&select_search=".$_GET['select_search'] : "").($_GET['search_text'] != '' ? "&search_text=".$_GET['search_text'] : "")."'><img src='images/next.png' border=0 align=absmiddle></a></div>";
+					<a href='".$this->var_file."?page=".$nextpage.($_GET['id'] != '' ? "&id=".$_GET['id'] : "").($_GET['select_search'] != '' ? "&select_search=".$_GET['select_search'] : "").($_GET['search_text'] != '' ? "&search_text=".$_GET['search_text'] : "").$option."'><img src='images/next.png' border=0 align=absmiddle></a></div>";
 				}else{
 			echo "<div class='listNumberPage'><img src='images/next-not.png'/></div>";
 				}
