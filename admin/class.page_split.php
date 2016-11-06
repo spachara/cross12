@@ -43,7 +43,7 @@ class page_split
 
 	function _displayPage($option="",$align="left")
 	{
-
+		$option = ($option == '&' ? '': $option) ; 
 		echo "<div class='show-page_number-left'>Page no.  ";
 		if($this->var_currentPage >1 && $this->var_currentPage<=$this->var_totalPage) {
 			$prevpage = $this->var_currentPage - 1;

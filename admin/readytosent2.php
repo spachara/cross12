@@ -9,10 +9,7 @@ if(isset($_SESSION['AUTH_PERMISSION_ID'])==false) {
 	$obj = new page_split();
 	$obj->_setPageSize(100);						
 	$obj->_setFile("readytosent2.php");
-        if( isset($_GET['Search'])&& $_SERVER['REQUEST_METHOD'] === 'GET')
-            $obj->_setPage(1);	
-        else
-            $obj->_setPage($_GET['page']);		
+    $obj->_setPage($_GET['page']);		
 	if($_GET['page'] > 1){
 		$f = 100*($_GET['page']- 1);
 	}
@@ -51,8 +48,6 @@ if($_POST['submit'] == 'Save' ){
 			
 			}
 		}
-session_unregister('AllID');
-session_unregister('AllNUMBERID');
 ?>		 
 		<script>
 			//location.href='readytosent2.php'; //รีเฟสหน้า
@@ -642,7 +637,7 @@ $(document).ready(function() {
                 <!-- End Block Frame-->
                                   	<div class="page_number">
                                     	<div class="page_number-right">
-                                            	<?php   $obj->_displayPage(str_replace('page='.$_GET['page'], '', $_SERVER['QUERY_STRING']);); ?>
+                                            	<?php   $obj->_displayPage(str_replace('page='.$_GET['page']. '&', '', '&' . $_SERVER['QUERY_STRING'])); ?>
                                     	</div>
                                     </div>
             </div>
