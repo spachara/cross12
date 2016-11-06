@@ -69,11 +69,21 @@ if($_POST['CANCEL'] == 'Cancel'){
 					
 					$update_product = "UPDATE product_tb SET p_pre = p_pre+".$data_tmp['product_number']." WHERE pid = '".$data_tmp['pid']."' ";
 					@mysql_query($update_product, $connect);
+					 if($data_tmp['product_recive'] > 0)
+					{
+						$update_product = "UPDATE product_tb SET p_stock = p_stock+".$data_tmp['product_recive']." WHERE pid = '".$data_tmp['pid']."' ";
+						@mysql_query($update_product, $connect);
+					}
 
 				}elseif($data_tmp['buy_status'] == 'SPARE' && $data_tmp['sent_status'] == 'RESERVE'){
 					
 					$update_product = "UPDATE product_tb SET p_spare = p_spare+".$data_tmp['product_number']." WHERE pid = '".$data_tmp['pid']."' ";
 					@mysql_query($update_product, $connect);
+					 if($data_tmp['product_recive'] > 0)
+					{
+						$update_product = "UPDATE product_tb SET p_stock = p_stock+".$data_tmp['product_recive']." WHERE pid = '".$data_tmp['pid']."' ";
+						@mysql_query($update_product, $connect);
+					}
 
 				}elseif($data_tmp['buy_status'] == 'SPARE' && $data_tmp['sent_status'] == 'READY'){
 					
