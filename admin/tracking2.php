@@ -8,13 +8,13 @@ if(isset($_SESSION['AUTH_PERMISSION_ID'])==false) {
 	echo "<script>location.href='index.php'</script>";
 }
 	$obj = new page_split();
-	$obj->_setPageSize(10);						
+	$obj->_setPageSize(100);						
 	$obj->_setFile("tracking2.php");
     $obj->_setPage($_GET['page']);		
 	if($_GET['page'] > 1){
-		$f = 10*($_GET['page']- 1);
+		$f = 100*($_GET['page']- 1);
 	}
-if($_POST['submit'] == 'Save' ){
+if($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['submit'] == 'Save' ){
 	
 	$sql_txt = "SELECT txt_detail_th FROM txt_tb WHERE txt_id = '24' ";
 	$result_txt =@mysql_query($sql_txt, $connect);
@@ -134,7 +134,7 @@ if($_POST['submit'] == 'Save' ){
 <?php
 
 }
-if($_POST['submit2'] == 'Save Done' ){
+if($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['submit2'] == 'Save Done' ){
 	
 	if($_POST['chkDone']){
 	
@@ -156,7 +156,7 @@ if($_POST['submit2'] == 'Save Done' ){
 <?php
 
 }
-if($_POST['capture'] == 'Capture' ){
+if($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['capture'] == 'Capture' ){
     if($_POST['trackingProId']){
 			
 		foreach ($_POST['trackingProId'] as $v) {						
@@ -347,7 +347,7 @@ $(document).ready(function() {
                     <table width="100%" border="0" cellpadding="0" cellspacing="0" style="font-family:Tahoma, Geneva, sans-serif; font-size:12px;">
                       <tr>
                         <td width="19%">วันที่ส่งสินค้า</td>
-                        <td width="22%"><input type="text" name="order_date" id="datepicker2" value="<?php echo $_POST['order_date'];?>" /></td>
+                        <td width="22%"><input type="text" name="order_date" id="datepicker2" value="<?php echo $_GET['order_date'];?>" /></td>
                         <td width="26%"><input type="submit" name="Search" id="Search" value="Search" /></td>
                         <td width="33%">&nbsp;</td>
                       </tr>
@@ -359,7 +359,7 @@ $(document).ready(function() {
                       </tr>
                     </table>   
 					</form>            
-       <form method="post" enctype="multipart/form-data" name="myform2" id="form1" action="<?php echo $_SERVER["PHP_SELF"] . '?' . $_SERVER['QUERY_STRING'] ;?>
+       <form method="post" enctype="multipart/form-data" name="myform2" id="form1" action="<?php echo $_SERVER["PHP_SELF"] . '?' . $_SERVER['QUERY_STRING'] ;?>">
                 <div class="demo" style="text-align:right">
                 <input type="text" name="trancking_date" id="date_begin"  value="" placeholder="กรุณาเลือกวันที่ส่งสินค้า"/>
                 <input type="submit" name="submit" value="Save" id="save" />
@@ -393,9 +393,9 @@ Selecct All</td>
 
 										$sql_order = '';
 
-										 if($_POST['order_date'] != '' ){
+										 if($_GET['order_date'] != '' ){
 											$sql_order = "SELECT order_tb.* FROM order_tb where 1 = 1 ";
-											 $sql_product = "select order_number from order_product_tb where ready_time = '".$_POST['order_date']."' ";
+											 $sql_product = "select order_number from order_product_tb where ready_time = '".$_GET['order_date']."' ";
 											 
 											$sql_order .= " AND order_tb.order_number in (". $sql_product .")";
 										 

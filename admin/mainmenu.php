@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $a = explode('/',$_SERVER['REQUEST_URI']);
 ?>
 			<div class="content_l">
@@ -24,8 +24,14 @@ $a = explode('/',$_SERVER['REQUEST_URI']);
                                   <a href="readytosent.php">
                                       <li>อัพเดท รายการจัดส่ง</li>
                                   </a>
+								  <a href="readytosent2.php">
+                                      <li>อัพเดท รายการจัดส่ง (ใหม่)</li>
+                                  </a>
                                   <a href="tracking.php">
                                       <li>อัพเดท เลขพัสดุ</li>
+                                  </a>
+                                  <a href="tracking2.php">
+                                      <li>อัพเดท เลขพัสดุ (ใหม่)</li>
                                   </a>
                                   <a href="printsent.php">
                                       <li>พิมพ์ รายการจัดส่ง</li>
