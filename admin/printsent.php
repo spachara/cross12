@@ -182,7 +182,7 @@ $(function(){
 				
             for($i2=1;$i2<=intval($num_max);$i2++){
 
-					$sql_update2 = "select * from order_product_tb where ready_time = '".$data_max['ready_time']."' and round_update = '".$i2."'";
+					$sql_update2 = "select * from order_product_tb where ready_time = '".$data_max['ready_time']."' and round_update = '".$i2."' order by date_update";
 					$result_update2 = @mysql_query($sql_update2, $connect);
 					$num_update2 =@mysql_num_rows($result_update2);
 					

@@ -13,11 +13,6 @@ if(isset($_SESSION['AUTH_PERMISSION_ID'])==false) {
 	if($_GET['page'] > 1){
 		$f = 100*($_GET['page']- 1);
 	}
-$date_check = date('Y')."-".date('m')."-".date('d');
-$sql_max = "select max(round_update) as max_round from order_product_tb where ready_time = '".$date_check ."'";
-$result_max = @mysql_query($sql_max, $connect);
-$data_max=@mysql_fetch_array($result_max);
-$round_no = isset($data_max['max_round'])? $data_max['max_round'] : 1;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 if($_POST['submit'] == 'Save' ){
@@ -28,7 +23,7 @@ if($_POST['submit'] == 'Save' ){
 		foreach ($_POST['trackingProId'] as $v) {			
 			
 			if($_POST['tracking'][$v] == '1'){
-					$sql_update_payment = "UPDATE order_product_tb SET ready_sent = '".$_POST['tracking'][$v]."', status_tracking = '1', ready_time = NOW()";
+					$sql_update_payment = "UPDATE order_product_tb SET ready_sent = '".$_POST['tracking'][$v]."', status_tracking = '1', date_update =NOW(), ready_time = NOW()";
 					$sql_update_payment .= ", round_update = '". $_POST['round_no'] ."' , round_comment = '".$_POST['round_comment']."'";
 					$sql_update_payment .= " where order_p_id = '".$_POST['trackingProId'][$v]."'";
 					$result_update_payment = @mysql_query($sql_update_payment, $connect);
@@ -56,6 +51,15 @@ if($_POST['submit'] == 'Save' ){
 
 	}
  }
+ 
+ 
+$date_check = date('Y')."-".date('m')."-".date('d');
+$sql_max = "select round_update as max_round, round_comment from order_product_tb where ready_time = '".$date_check ."' order by round_update desc  Limit 1";
+$result_max = @mysql_query($sql_max, $connect);
+$data_max=@mysql_fetch_array($result_max);
+$round_no = isset($data_max['max_round'])? $data_max['max_round'] : 1;
+$round_comment = isset($data_max['round_comment'])? $data_max['round_comment'] : '';
+$round_comment = $_SERVER['REQUEST_METHOD'] === 'POST' ? $_POST['round_comment'] : $round_comment;
 ?>		 
 		
  
@@ -310,7 +314,7 @@ $(document).ready(function() {
                 <div class="demo" style="text-align:right">
                   <table width="100%" border="0" cellspacing="5" cellpadding="0" style="font-family:Tahoma, Geneva, sans-serif; font-size:12px;">
                     <tr>
-                      <td width="40%" align="right" bgcolor="#F8F8F8">Comment :<br/><textarea name="round_comment" id="round_comment"><?php echo $_POST['round_comment'];?></textarea></td>
+                      <td width="40%" align="right" bgcolor="#F8F8F8">Comment :<br/><textarea name="round_comment" id="round_comment"><?php echo $round_comment ;?></textarea></td>
                       <td width="6%" align="right" bgcolor="#F8F8F8">รอบที่ / Round :<br/><input type="text" onkeypress="return isNumber(event)" style="width:50px"  name="round_no" id="round_no" value="<?php echo $round_no ;?>"></td>
                       <td width="6%" bgcolor="#F8F8F8"><span class="demo" style="text-align:right">
                         <input type="submit" name="submit" value="Save" />
