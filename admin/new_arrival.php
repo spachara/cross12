@@ -34,7 +34,7 @@ if($_POST['save'] == '1'){
 }
 if($_GET['sAction'] == 'del'){
 	
-	$edit_status_newarrvial = "UPDATE product_highlight_tb2 SET highlight_status_show = 2 WHERE highlight_id = '".$_GET['id_del']."' ";
+	$edit_status_newarrvial = "UPDATE product_highlight_tb2 SET highlight_status_show = 2, date_update = NOW() WHERE highlight_id = '".$_GET['id_del']."' ";
 	@mysql_query($edit_status_newarrvial, $connect);
 	
 	?><script>location.href='new_arrival.php';</script><?php
@@ -195,11 +195,11 @@ $(document).ready(function() {
 												
 											}
 												
-											$sql_product_h2 = "SELECT * FROM product_highlight_tb2 WHERE highlight_status_show = 1 ORDER BY highlight_status DESC,ranking DESC";
+											$sql_product_h2 = "SELECT * FROM product_highlight_tb2 WHERE highlight_status_show = 1 ORDER BY highlight_status DESC, date_in DESC,ranking DESC";
 											
 											$result_product_h2 =@mysql_query($sql_product_h2, $connect);
 											$num_product_h2 =@mysql_num_rows($result_product_h2);
-											
+											$i3 = 0;
 											for($i2=1;$i2<=intval($num_product_h2);$i2++){
 											$data_product_h2 =@mysql_fetch_array($result_product_h2);
 											
@@ -210,11 +210,11 @@ $(document).ready(function() {
 											if ($num_product_h3 > 0) {	
 											$data_product2 =@mysql_fetch_array($result_product2);
 											
-
+												$i3++;
 											?>
                                             <li>
                                                 <div class="cell1"style="width:5%;">
-                                                    <?php echo $f+$i2;?>
+                                                    <?php echo $i3;?>
                                                 </div>
                                                 <div class="cell2"style="width:11%;">
 													<?php echo $data_product2['p_category']; ?>
