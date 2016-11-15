@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 session_start();
 require_once '../dbconnect.inc';
 
@@ -9,24 +9,50 @@ if(isset($_SESSION['AUTH_PERMISSION_ID'])==false) {
 
 
 if($_POST['Submit'] == 'CREATE'){
-
-	$add_banner = "INSERT INTO color_tb (oid, c_code, name, color_code, ranking, date_in)";
-	$add_banner .= "VALUES(NULL, '".$_POST['c_code']."', '".$_POST['name']."', '".$_POST['colorpickerField1']."', '0', NOW())";
-	@mysql_query($add_banner, $connect);
+	$validate =  @mysql_query("select c_code from color_tb where c_code = '" . trim($_POST['c_code']) . "'", $connect);
+	$num_validate =  @mysql_num_rows($validate);
+	if($num_validate>0)
+	{
+		echo '<script language="javascript">';
+		echo 'alert("Error : Code ' . $_POST['c_code']  . ' มีอยู่แล้วในระบบแล้ว!!")';
+		echo '</script>';
+	}
+	else
+	{
+		$add_banner = "INSERT INTO color_tb (oid, c_code, name, color_code, ranking, date_in)";
+		$add_banner .= "VALUES(NULL, '".$_POST['c_code']."', '".$_POST['name']."', '".$_POST['colorpickerField1']."', '0', NOW())";
+		@mysql_query($add_banner, $connect);
+	}
 			
-
+if($num_validate<=0)
+	{
 ?><script>window.location.href='new_color.php';</script>
-<?php } 
+<?php 
+	}
+	} 
 
 
 if($_POST['Submit'] == 'Edit'){
-
-	echo $add_banner = "UPDATE color_tb SET name = '".$_POST['name']."', c_code = '".$_POST['c_code']."' , color_code = '".$_POST['colorpickerField1']."' where oid = '".$_POST['oid']."'";
+	$validate =  @mysql_query("select c_code from color_tb where c_code = '" . trim($_POST['c_code']) . "' and oid <> '".$_POST['oid']."'", $connect);
+	$num_validate =  @mysql_num_rows($validate);
+	if($num_validate>0)
+	{
+		echo '<script language="javascript">';
+		echo 'alert("Error : Code ' . $_POST['c_code']  . ' มีอยู่แล้วในระบบแล้ว!!")';
+		echo '</script>';
+	}
+	else
+	{
+	$add_banner = "UPDATE color_tb SET name = '".$_POST['name']."', c_code = '".$_POST['c_code']."' , color_code = '".$_POST['colorpickerField1']."' where oid = '".$_POST['oid']."'";
 	@mysql_query($add_banner, $connect);
+	}
 			
-
+if($num_validate<=0)
+	{
 ?><script>window.location.href='new_color.php';</script>
-<?php } 
+<?php 
+}	
+} 
 
 
 $sql_category = "select * from color_tb where oid = '".$_GET['oid']."'";
